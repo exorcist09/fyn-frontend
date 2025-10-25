@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import Input from "../Components/Input";
-import { AppContext } from "../context/appcontext";
+import { AppContext } from "../context/AppContext";
 import { LoaderCircle } from "lucide-react";
 import { validation } from "../util/validation";
 import axiosConfig from "../util/axiosconfig";

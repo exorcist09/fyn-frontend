@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { AppContext } from "../context/appcontext";
+import { AppContext } from "../context/AppContext";
 import { LogOutIcon, Menu, User, X } from "lucide-react";
 import Sidebar from "./Sidebar";
 const MenuBar = ({ activeMenu }) => {

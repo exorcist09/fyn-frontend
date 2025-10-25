@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../context/appcontext";
+import { AppContext } from "../context/AppContext";
 import { User } from "lucide-react";
 import { SIDEBAR_DATA } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
