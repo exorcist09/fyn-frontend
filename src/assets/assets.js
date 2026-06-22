@@ -1,7 +1,7 @@
 import logowhite from "./fyn_black_logo.png";
 import logoblack from "./fyn_white_logo.png";
 import bgLogin from "./bg_registerandlogin.jpg";
-import { Coins, Funnel, LayoutDashboard, List, ListChecks, Wallet } from "lucide-react";
+import { Coins, Funnel, LayoutDashboard, ListChecks, Wallet } from "lucide-react";
 
 export const assets = {
   logowhite,

@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
-import { LogOutIcon, Menu, User, X, UserRound } from "lucide-react";
+import { LogOutIcon, Menu, X, UserRound } from "lucide-react";
 import Sidebar from "./Sidebar";
 const MenuBar = ({ activeMenu }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
@@ -37,7 +37,7 @@ const MenuBar = ({ activeMenu }) => {
           onClick={() => setOpenSideMenu(!openSideMenu)}
           className="block lg:hidden text-black hover:bg-gray-100 p-1 rounded transition-colors"
         >
-          {openSideMenu ? <X className="text-2xl" /> : <Menu />}{" "}
+          {openSideMenu ? <X className="text-2xl" /> : <Menu className="text-2xl" />}{" "}
         </button>
         {/* logo */}
         <div className="flex items-center gap-2 lg:ml-20">
