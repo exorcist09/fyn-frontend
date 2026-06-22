@@ -165,6 +165,9 @@ const Income = () => {
   return (
     <Dashboard activeMenu="Income">
       <div className="my-5 mx-auto">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-2xl font-semibold">Income</h2>
+        </div>
         <div className="grid grid-cols-1 gap-6">
           <div>
             {/* overview for income with line char */}

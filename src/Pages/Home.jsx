@@ -47,8 +47,11 @@ const Home = () => {
 
   return (
     <div>
-      <Dashboard activeMenu="Dashboard">
+      <Dashboard activeMenu="Overview">
         <div className="my-5 mx-auto">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-semibold">Overview</h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Display the cards*/}
             <InfoCard

@@ -180,6 +180,9 @@ const Expense = () => {
     return (
         <Dashboard activeMenu="Expense">
             <div className="my-5 mx-auto">
+                <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-2xl font-semibold">Expense</h2>
+                </div>
                 <div className="grid grid-cols-1 gap-6">
                     <div className="">
                         <ExpenseOverview
