@@ -1,12 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { UserRound, LogOutIcon } from "lucide-react";
 import { SIDEBAR_DATA, assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 
 const Sidebar = ({ activeMenu }) => {
   const { user, clearUser } = useContext(AppContext);
   const navigate = useNavigate();
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -70,7 +72,7 @@ const Sidebar = ({ activeMenu }) => {
           </button>
           
           <button
-            onClick={handleLogout}
+            onClick={() => setIsLogoutModalOpen(true)}
             className="flex items-center gap-3 w-full px-5 py-3 text-red-600 hover:bg-red-50 rounded-xl transition-colors duration-150 font-medium"
           >
             <LogOutIcon className="w-5 h-5 text-red-600" />
@@ -78,6 +80,31 @@ const Sidebar = ({ activeMenu }) => {
           </button>
         </div>
       </div>
+
+      {/* Logout Confirmation Modal */}
+      <Modal
+        isOpen={isLogoutModalOpen}
+        onClose={() => setIsLogoutModalOpen(false)}
+        title="Confirm Logout"
+      >
+        <div>
+          <p className="text-sm text-gray-600">Are you sure you want to log out?</p>
+          <div className="flex justify-end gap-4 mt-6">
+            <button
+              onClick={() => setIsLogoutModalOpen(false)}
+              className="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
