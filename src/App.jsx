@@ -13,6 +13,8 @@ import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import { Toaster } from "react-hot-toast";
 
+import Profile from "./Pages/Profile";
+
 function App() {
   return (
     <>
@@ -25,6 +27,7 @@ function App() {
           <Route path="/expense" element={<Expense />} />
           <Route path="/filter" element={<Filter />} />
           <Route path="/category" element={<Category />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>

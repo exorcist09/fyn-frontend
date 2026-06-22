@@ -19,7 +19,7 @@ const IncomeOverview = ({transactions, onAddIncome}) => {
         <div className="card">
             <div className="flex items-center justify-between">
                 <div>
-                    <p className="text-xs text-gray-400 mt-0 5">
+                    <p className="text-md font-medium text-gray-600">
                         Track your earnings over time and analyze your income trends.
                     </p>
                 </div>
@@ -27,7 +27,7 @@ const IncomeOverview = ({transactions, onAddIncome}) => {
                     <Plus size={15} className="text-lg" /> Add Income
                 </button>
             </div>
-            <div className="mt-10">
+            <div className="mt-8 border border-gray-200 rounded-2xl p-4 bg-white shadow-sm">
                 <CustomLineChart data={chartData} />
             </div>
         </div>

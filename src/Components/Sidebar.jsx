@@ -50,17 +50,24 @@ const Sidebar = ({ activeMenu }) => {
 
       {/* User Footer */}
       <div className="mt-auto pt-4 border-t border-gray-200">
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-3 px-2">
-            <div className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full shrink-0">
-              <UserRound className="w-5 h-5 text-gray-800" />
+        <div className="flex flex-col gap-2">
+          <button 
+            onClick={() => navigate("/profile")}
+            className="flex items-center gap-3 px-2 py-2 hover:bg-gray-100 rounded-xl transition-colors cursor-pointer text-left"
+          >
+            <div className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full shrink-0 overflow-hidden">
+              {user?.profileImageUrl ? (
+                <img src={user.profileImageUrl} alt="Avatar" className="w-full h-full object-cover" />
+              ) : (
+                <UserRound className="w-5 h-5 text-gray-800" />
+              )}
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-gray-800 truncate">
                 {user?.fullName || "User Name"}
               </p>
             </div>
-          </div>
+          </button>
           
           <button
             onClick={handleLogout}
