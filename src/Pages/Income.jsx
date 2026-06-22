@@ -181,6 +181,7 @@ const Income = () => {
             <IncomeList
               transactions={incomeData}
               onDelete={(id) => setOpenDeleteAlert({ show: true, data: id })}
+              isLoading={loading}
             />
           </div>
 

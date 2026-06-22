@@ -1,7 +1,7 @@
 import {Blocks, Layers2, Pencil, ListChecks} from "lucide-react";
 import EmptyState from "./EmptyState";
 
-const CategoryList = ({categories, onEditCategory}) => {
+const CategoryList = ({categories, onEditCategory, isLoading}) => {
     return (
         <div className="card p-4">
             <div className="flex items-center justify-between mb-4">
@@ -9,7 +9,19 @@ const CategoryList = ({categories, onEditCategory}) => {
             </div>
 
             {/* Category list */}
-            {(!categories || categories.length === 0) ? (
+            {isLoading ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {Array.from({ length: 6 }).map((_, idx) => (
+                        <div key={idx} className="group relative flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-200 animate-pulse">
+                            <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
+                            <div className="flex-1">
+                                <div className="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
+                                <div className="h-3 bg-gray-200 rounded w-1/3"></div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            ) : (!categories || categories.length === 0) ? (
                 <EmptyState
                     icon={ListChecks}
                     message="No categories found"

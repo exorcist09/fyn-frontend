@@ -125,6 +125,7 @@ const Category = () => {
         <CategoryList
           categories={categoryData}
           onEditCategory={handleEditCategory}
+          isLoading={loading}
         />
 
         {/* Adding Category Modal */}

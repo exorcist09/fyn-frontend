@@ -197,6 +197,7 @@ const Expense = () => {
                             onDelete={(id) => {
                                 setOpenDeleteAlert({ show: true, data: id });
                             }}
+                            isLoading={loading}
                         />
                     </div>
 

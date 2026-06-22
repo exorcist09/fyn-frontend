@@ -59,18 +59,21 @@ const Home = () => {
               label="Total Balance"
               value={addThousandsSeparator(dashboardData?.totalBalance || 0)}
               color="bg-blue-800"
+              isLoading={loading}
             />
             <InfoCard
               icon={<WalletMinimal  />}
               label="Total Income"
               value={addThousandsSeparator(dashboardData?.totalIncome || 0)}
               color="bg-green-800"
+              isLoading={loading}
             />
             <InfoCard
               icon={<BanknoteArrowDown  />}
               label="Total Expense"
               value={addThousandsSeparator(dashboardData?.totalExpense || 0)}
               color="bg-purple-800"
+              isLoading={loading}
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 mt-6">
@@ -78,6 +81,7 @@ const Home = () => {
             <RecentTransactions
               transactions={dashboardData?.recentTransactions}
               onMore={() => navigate("/expense")}
+              isLoading={loading}
             />
 
             {/* Vertical Divider (Desktop) / Horizontal Divider (Mobile) */}
@@ -93,6 +97,7 @@ const Home = () => {
               totalBalance={dashboardData?.totalBalance || 0}
               totalIncome={dashboardData?.totalIncome || 0}
               totalExpense={dashboardData?.totalExpense || 0}
+              isLoading={loading}
             />
 
             {/* Faded Horizontal Divider (Row separator) */}
@@ -106,6 +111,7 @@ const Home = () => {
               onMore={() => navigate("/expense")}
               type="expense"
               title="Recent Expenses"
+              isLoading={loading}
             />
 
             {/* Vertical Divider (Desktop) / Horizontal Divider (Mobile) */}
@@ -122,6 +128,7 @@ const Home = () => {
               onMore={() => navigate("/income")}
               type="income"
               title="Recent Incomes"
+              isLoading={loading}
             />
           </div>
         </div>
