@@ -12,7 +12,7 @@ export const assets = {
 export const SIDEBAR_DATA = [
   {
     id: "01",
-    label: "DashBoard",
+    label: "Dashboard",
     icon: LayoutDashboard,
     path: "/dashboard",
   },
