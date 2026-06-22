@@ -184,21 +184,21 @@ const Expense = () => {
                     <h2 className="text-2xl font-semibold">Expense</h2>
                 </div>
                 <div className="grid grid-cols-1 gap-6">
-                    <div className="">
+                    <div className="w-full">
                         <ExpenseOverview
                             transactions={expenseData}
                             onExpenseIncome={() => setOpenAddExpenseModal(true)}
                         />
                     </div>
 
-                    <ExpenseList
-                        transactions={expenseData}
-                        onDelete={(id) => {
-                            setOpenDeleteAlert({ show: true, data: id });
-                        }}
-                        onDownload={handleDownloadExpenseDetails}
-                        onEmail={handleEmailExpenseDetails}
-                    />
+                    <div className="w-full">
+                        <ExpenseList
+                            transactions={expenseData}
+                            onDelete={(id) => {
+                                setOpenDeleteAlert({ show: true, data: id });
+                            }}
+                        />
+                    </div>
 
                     <Modal
                         isOpen={openAddExpenseModal}

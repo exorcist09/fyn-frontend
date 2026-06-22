@@ -5,7 +5,7 @@ const CategoryList = ({categories, onEditCategory}) => {
     return (
         <div className="card p-4">
             <div className="flex items-center justify-between mb-4">
-                <h4 className="text-lg font-semibold">Category Sources</h4>
+                <h4 className="text-md font-medium text-gray-600">Add multiple sources of your income and expenses</h4>
             </div>
 
             {/* Category list */}
@@ -20,7 +20,7 @@ const CategoryList = ({categories, onEditCategory}) => {
                     {categories.map((category) => (
                         <div
                             key={category.id}
-                            className="group relative flex items-center gap-4 p-3 rounded-lg bg-white">
+                            className="group relative flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-300 hover:shadow-md transition-shadow">
                             {/* Icon/Emoji disply*/}
                             <div className="w-12 h-12 flex items-center justify-center text-xl text-gray-800 bg-gray-100 rounded-full">
                                 {category.icon ? (

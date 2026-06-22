@@ -169,7 +169,7 @@ const Income = () => {
           <h2 className="text-2xl font-semibold">Income</h2>
         </div>
         <div className="grid grid-cols-1 gap-6">
-          <div>
+          <div className="w-full">
             {/* overview for income with line char */}
             <IncomeOverview
               transactions={incomeData}
@@ -177,12 +177,12 @@ const Income = () => {
             />
           </div>
 
-          <IncomeList
-            transactions={incomeData}
-            onDelete={(id) => setOpenDeleteAlert({ show: true, data: id })}
-            onDownload={handleDownloadIncomeDetails}
-            onEmail={handleEmailIncomeDetails}
-          />
+          <div className="w-full">
+            <IncomeList
+              transactions={incomeData}
+              onDelete={(id) => setOpenDeleteAlert({ show: true, data: id })}
+            />
+          </div>
 
           {/* Add Income Modal */}
           <Modal

@@ -2,7 +2,8 @@ import CustomPieChart from "./CustomPieChart.jsx";
 import {addThousandsSeparator} from "../util/util.js";
 
 const FinanceOverview = ({totalBalance, totalIncome, totalExpense}) => {
-    const COLORS = ["#59168B", "#a0090e", "#016630"];
+    // Colors matching bg-blue-800, bg-purple-800, bg-green-800
+    const COLORS = ["#1e40af", "#6b21a8", "#166534"];
 
     const isEmpty = totalBalance === 0 && totalExpense === 0 && totalIncome === 0;
 

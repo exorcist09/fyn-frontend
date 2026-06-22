@@ -61,7 +61,7 @@ const Category = () => {
         type,
         icon,
       });
-      if (response === 201) {
+      if (response.status === 201) {
         toast.success("Category added Successfully");
         setOpenAddCategoryModal(false);
         fetchCategoryDetails();
