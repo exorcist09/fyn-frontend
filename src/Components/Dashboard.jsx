@@ -6,11 +6,11 @@ import { AppContext } from "../context/AppContext";
 const Dashboard = ({ children, activeMenu }) => {
   const { user } = useContext(AppContext);
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <MenuBar activeMenu={activeMenu} />
       
       {user && (
-      <div className="flex bg-gray-300/30">
+      <div className="flex bg-gray-300/30 flex-1">
         <div className="max-[1080px]:hidden">
           <Sidebar activeMenu={activeMenu} />
         </div>

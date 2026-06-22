@@ -7,7 +7,7 @@ const Sidebar = ({ activeMenu }) => {
   const { user } = useContext(AppContext);
   const navigate = useNavigate();
   return (
-    <div className="w-64 h-[calc(100-vh-61px)] bg-white border-gray-200/50 p-5 sticky top-[61px] z-20">
+    <div className="w-64 h-[calc(100vh-73px)] bg-white border-r border-gray-200/50 p-5 sticky top-[73px] z-20 flex flex-col">
       {/* menu items */}
       <div className="p-5 flex-1">
         {SIDEBAR_DATA.map((item, index) => {
@@ -34,7 +34,7 @@ const Sidebar = ({ activeMenu }) => {
       </div>
 
       {/* profile section */}
-      <div className="flex flex-col items-center justify-center gap-3 mt-37 mb-7 ">
+      <div className="flex flex-col items-center justify-center gap-3 mt-auto mb-7 ">
         {user?.profileImageUrl ? (
           <img
             src={user?.profileImageUrl || ""}
