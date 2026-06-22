@@ -8,7 +8,11 @@ const ExpenseOverview = ({transactions, onExpenseIncome}) => {
 
     useEffect(() => {
         const result = prepareIncomeLineChartData(transactions);
-        setChartData(result);
+        if (!result || result.length === 0) {
+            setChartData([{ month: "No Data", totalAmount: 0, items: [] }]);
+        } else {
+            setChartData(result);
+        }
 
         return () => {};
     }, [transactions]);

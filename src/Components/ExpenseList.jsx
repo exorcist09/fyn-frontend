@@ -1,6 +1,7 @@
 import moment from "moment";
-import {Download, Mail} from "lucide-react";
+import {Download, Mail, ReceiptText} from "lucide-react";
 import TransactionInfoCard from "./TransactionInfoCard.jsx";
+import EmptyState from "./EmptyState";
 
 const ExpenseList = ({ transactions, onDelete, onDownload, onEmail }) => {
     return (
@@ -14,18 +15,28 @@ const ExpenseList = ({ transactions, onDelete, onDownload, onEmail }) => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2">
-                {transactions?.map((expense) => (
-                    <TransactionInfoCard
-                        key={expense.id}
-                        title={expense.name}
-                        icon={expense.icon}
-                        date={moment(expense.date).format("Do MMM YYYY")}
-                        amount={expense.amount}
-                        type="expense"
-                        onDelete={() => onDelete(expense.id)}
+            <div className="mt-6">
+                {!transactions || transactions.length === 0 ? (
+                    <EmptyState
+                        icon={ReceiptText}
+                        message="No expenses found"
+                        subMessage="Your added expenses will appear here"
                     />
-                ))}
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {transactions?.map((expense) => (
+                            <TransactionInfoCard
+                                key={expense.id}
+                                title={expense.name}
+                                icon={expense.icon}
+                                date={moment(expense.date).format("Do MMM YYYY")}
+                                amount={expense.amount}
+                                type="expense"
+                                onDelete={() => onDelete(expense.id)}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

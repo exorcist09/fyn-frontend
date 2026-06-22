@@ -1,4 +1,5 @@
-import {Blocks, Layers2, Pencil} from "lucide-react";
+import {Blocks, Layers2, Pencil, ListChecks} from "lucide-react";
+import EmptyState from "./EmptyState";
 
 const CategoryList = ({categories, onEditCategory}) => {
     return (
@@ -8,10 +9,12 @@ const CategoryList = ({categories, onEditCategory}) => {
             </div>
 
             {/* Category list */}
-            {categories.length === 0 ? (
-                <p className="text-gray-500">
-                    No categories added yet. Add some to get started!
-                </p>
+            {(!categories || categories.length === 0) ? (
+                <EmptyState
+                    icon={ListChecks}
+                    message="No categories found"
+                    subMessage="Add categories to start tracking"
+                />
             ): (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {categories.map((category) => (

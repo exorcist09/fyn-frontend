@@ -7,8 +7,11 @@ const IncomeOverview = ({transactions, onAddIncome}) => {
     const [chartData, setChartData] = useState([]);
     useEffect(() => {
         const result = prepareIncomeLineChartData(transactions);
-        console.log(result);
-        setChartData(result);
+        if (!result || result.length === 0) {
+            setChartData([{ month: "No Data", totalAmount: 0, items: [] }]);
+        } else {
+            setChartData(result);
+        }
 
         return () => {};
     }, [transactions]);

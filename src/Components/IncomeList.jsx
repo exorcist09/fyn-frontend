@@ -1,7 +1,8 @@
-import {Download, LoaderCircle, Mail} from "lucide-react";
+import {Download, LoaderCircle, Mail, ReceiptText} from "lucide-react";
 import TransactionInfoCard from "./TransactionInfoCard.jsx";
 import moment from "moment";
 import {useState} from "react";
+import EmptyState from "./EmptyState";
 
 const IncomeList = ({transactions, onDelete, onDownload, onEmail}) => {
     const [loading, setLoading] = useState(false);
@@ -35,19 +36,29 @@ const IncomeList = ({transactions, onDelete, onDownload, onEmail}) => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="mt-6">
                 {/* display the incomes */}
-                {transactions?.map((income) => (
-                    <TransactionInfoCard
-                        key={income.id}
-                        title={income.name}
-                        icon={income.icon}
-                        date={moment(income.date).format('Do MMM YYYY')}
-                        amount={income.amount}
-                        type="income"
-                        onDelete={() => onDelete(income.id)}
+                {!transactions || transactions.length === 0 ? (
+                    <EmptyState
+                        icon={ReceiptText}
+                        message="No income records found"
+                        subMessage="Your added income sources will appear here"
                     />
-                ))}
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {transactions?.map((income) => (
+                            <TransactionInfoCard
+                                key={income.id}
+                                title={income.name}
+                                icon={income.icon}
+                                date={moment(income.date).format('Do MMM YYYY')}
+                                amount={income.amount}
+                                type="income"
+                                onDelete={() => onDelete(income.id)}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     )

@@ -1,11 +1,11 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ReceiptText } from "lucide-react";
 import TransactionInfoCard from "./TransactionInfoCard";
 import moment from "moment";
-
+import EmptyState from "./EmptyState";
 
 const Transactions = ({ transactions, onMore, type, title }) => {
   return (
-    <div className="card">
+    <div className="card h-full flex flex-col">
       <div className="flex items-center justify-between">
         <h5 className="text-lg">{title}</h5>
         <button
@@ -16,18 +16,26 @@ const Transactions = ({ transactions, onMore, type, title }) => {
         </button>
       </div>
 
-      <div className="mt-6">
-        {transactions?.slice(0, 5)?.map((item) => (
-          <TransactionInfoCard
-            key={item.id}
-            title={item.name}
-            icon={item.icon}
-            date={moment(item.date).format("Do MMM YYYY")}
-            amount={item.amount}
-            type={type}
-            hideDeleteBtn
+      <div className="mt-6 flex-1 flex flex-col">
+        {!transactions || transactions.length === 0 ? (
+          <EmptyState
+            icon={ReceiptText}
+            message={`No ${title.toLowerCase()} found`}
+            subMessage={`Your recent ${title.toLowerCase()} will appear here`}
           />
-        ))}
+        ) : (
+          transactions?.slice(0, 5)?.map((item) => (
+            <TransactionInfoCard
+              key={item.id}
+              title={item.name}
+              icon={item.icon}
+              date={moment(item.date).format("Do MMM YYYY")}
+              amount={item.amount}
+              type={type}
+              hideDeleteBtn
+            />
+          ))
+        )}
       </div>
     </div>
   );

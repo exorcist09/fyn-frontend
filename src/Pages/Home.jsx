@@ -70,12 +70,20 @@ const Home = () => {
               color="bg-purple-800"
             />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 mt-6">
             {/* Recent transactions */}
             <RecentTransactions
               transactions={dashboardData?.recentTransactions}
               onMore={() => navigate("/expense")}
             />
+
+            {/* Vertical Divider (Desktop) / Horizontal Divider (Mobile) */}
+            <div className="hidden md:flex justify-center items-center">
+              <div className="w-[2px] h-[95%] bg-gradient-to-b from-transparent via-gray-400 to-transparent"></div>
+            </div>
+            <div className="md:hidden flex justify-center -my-3">
+              <div className="w-11/12 h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+            </div>
 
             {/* finance overview chart */}
             <FinanceOverview
@@ -84,6 +92,11 @@ const Home = () => {
               totalExpense={dashboardData?.totalExpense || 0}
             />
 
+            {/* Faded Horizontal Divider (Row separator) */}
+            <div className="col-span-1 md:col-span-3 flex justify-center -my-3">
+              <div className="w-11/12 h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+            </div>
+
             {/* Expense transactions */}
             <Transactions
               transactions={dashboardData?.recent5Expenses || []}
@@ -91,6 +104,14 @@ const Home = () => {
               type="expense"
               title="Recent Expenses"
             />
+
+            {/* Vertical Divider (Desktop) / Horizontal Divider (Mobile) */}
+            <div className="hidden md:flex justify-center items-center">
+              <div className="w-[2px] h-[95%] bg-gradient-to-b from-transparent via-gray-400 to-transparent"></div>
+            </div>
+            <div className="md:hidden flex justify-center -my-3">
+              <div className="w-11/12 h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+            </div>
 
             {/* Income transactions */}
             <Transactions

@@ -5,6 +5,7 @@ import { Search } from "lucide-react";
 import TransactionInfoCard from "../Components/TransactionInfoCard";
 import useUser from "../hooks/useUser";
 import Dashboard from "../Components/Dashboard";
+import EmptyState from "../Components/EmptyState";
 
 const Filter = () => {
   useUser();
@@ -161,25 +162,29 @@ const Filter = () => {
           <div className="flex items-center justify-between mb-4">
             <h5 className="text-lg font-semibold">Transactions</h5>
           </div>
-          {transactions.length === 0 && !loading ? (
-            <p className="text-gray-500">
-              Select the filters and click apply to filter the transactions
-            </p>
-          ) : (
-            ""
-          )}
-          {loading ? <p className="text-gray-500">Loading Transactions</p> : ""}
-          {transactions.map((transaction) => (
-            <TransactionInfoCard
-              key={transaction.id}
-              title={transaction.name}
-              icon={transaction.icon}
-              date={moment(transaction.date).format("Do MMM YYYY")}
-              amount={transaction.amount}
-              type={type}
-              hideDeleteBtn
+          {loading ? (
+            <div className="py-8"><p className="text-gray-500 text-center">Loading Transactions...</p></div>
+          ) : transactions.length === 0 ? (
+            <EmptyState
+              icon={Search}
+              message="No transactions found"
+              subMessage="Try adjusting your filters to find what you're looking for"
             />
-          ))}
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              {transactions.map((transaction) => (
+                <TransactionInfoCard
+                  key={transaction.id}
+                  title={transaction.name}
+                  icon={transaction.icon}
+                  date={moment(transaction.date).format("Do MMM YYYY")}
+                  amount={transaction.amount}
+                  type={type}
+                  hideDeleteBtn
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </Dashboard>

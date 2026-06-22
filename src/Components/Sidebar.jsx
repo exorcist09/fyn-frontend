@@ -18,7 +18,7 @@ const Sidebar = ({ activeMenu }) => {
               className={`w-full flex items-center gap-4 text-[15px] py-3 px-5 rounded-xl mb-2 transition-all duration-200
                 ${activeMenu == item.label
                   ? "bg-gray-300 text-gray-900 font-medium shadow-sm"
-                  : "text-gray-700 hover:bg-gray-300 hover:text-gray-900"
+                  : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 }`}
             >
               <item.icon
